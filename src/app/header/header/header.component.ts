@@ -9,8 +9,7 @@ import { DialogBodyComponent } from '../../extras/dialog-body/dialog-body.compon
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
-	isLoggedIn = false;
+	
 	username = undefined;
 	avatar_url = '';
 

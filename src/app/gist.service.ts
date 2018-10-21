@@ -19,8 +19,9 @@ export interface Gist {
 })
 export class GistService {
 
-  base_url = "http://localhost:8000/"
-  url = "http://localhost:8000/api/gists/"
+  isLoggedIn = false;
+  base_url = "http://localhost:8000/";
+  url = "http://localhost:8000/api/gists/";
 
   constructor(private http: HttpClient) { }
 
