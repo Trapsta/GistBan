@@ -1,9 +1,19 @@
 # Gistban
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.4.
+A Kanban note that saves your notes on [Github Gists](https://gist.github.com/) built with Angular 6.
+
+![App Screenshot](https://raw.githubusercontent.com/Trapsta/RI/master/Screenshots/b75ca7a5-7e57-403a-894f-f177a294deef.png)
+
+## Features
+1. Login with Github.
+2. Create New Kanban Task.
+3. Todo, In Progress and Done Kanban Columns.
+4. Drag and Drop Interface for Updating Kanban status using Angular CDK.
+
 
 ## Development server
 
+Run the Node [Back-end API](https://github.com/Trapsta/GistBan-Backend).
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
