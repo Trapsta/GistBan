@@ -1,0 +1,96 @@
+<section class="kanban-board__container container-fluid">
+	<section class="row">
+		<section class="col-md-4 col-xs-12">
+			<section class="kanban-column__container">
+				<div class="kanban-column-header__text">
+					<h3>To do</h3>
+				</div>
+
+				<div class="kanban-note__wrapper card new-task">
+					<div class="kanban-note card-body">
+						<form (ngSubmit)="getGists()">
+						<!-- <form (ngSubmit)="onSubmit()"> -->
+							<div class="form-group">
+								<label for="task" >Add new task</label>
+							</div>
+							<div class="form-group">
+								<input type="text" name="task" [(ngModel)]="model.task" #task="ngModel" >
+							</div>
+							<div class="form-check">
+					    		<input type="checkbox" class="form-check-input" name="public" [(ngModel)]="model.public" #public="ngModel">
+					    		<label class="form-check-label" for="public">Public</label>
+					  		</div>
+					  		<button type="submit" class="btn btn-primary">Add Task</button>				
+						</form>
+					</div>
+				</div>
+
+				<cdk-drop #listOne [connectedTo]="[listTwo,listThree]" (dropped)="addToList($event)" [data]="gistsBase">
+
+					<div class="kanban-note__wrapper card" *ngFor="let gist of gistsBase" ng-if="gist.description === 'Todo" cdkDrag> 
+						<div class="kanban-note card-body">
+							<div class="kanban-note-details">
+								<h4 class="kanban-note-title__text"> {{ gist.content }} </h4>
+								<p class="kanban-note-date__text" >Added on {{ gist.created_at | timeAgo }} </p>
+							</div>
+							<div class="kanban-note-actions">
+								<button class="btn kanban-note-btn kanban-note-delete">Delete</button>
+							</div>
+						</div>
+					</div>
+
+				</cdk-drop>
+			</section>
+		</section>
+
+
+
+		<section class="col-md-4 col-xs-12">
+			<section class="kanban-column__container">
+				<div class="kanban-column-header__text">
+					<h3>In Progress</h3>
+				</div>
+
+				<cdk-drop #listTwo [connectedTo]="[listOne,listThree]" (dropped)="addToList($event)" [data]="gistsBaseProgress">
+
+					<div class="kanban-note__wrapper card" *ngFor="let gist of gistsBaseProgress" ng-if="gist.description === 'In progress" cdkDrag> 
+						<div class="kanban-note card-body">
+							<div class="kanban-note-details">
+								<h4 class="kanban-note-title__text"> {{ gist.content }} </h4>
+								<p class="kanban-note-date__text" >added 3 days ago</p>
+							</div>
+							<div class="kanban-note-actions">
+								<button class="btn kanban-note-btn kanban-note-delete">Delete</button>
+							</div>
+						</div>
+					</div>
+
+				</cdk-drop>
+			</section>
+		</section>
+
+
+
+		<section class="col-md-4 col-xs-12">
+			<section class="kanban-column__container">
+			<div class="kanban-column-header__text">
+				<h3>Done</h3>
+			</div>
+
+			<cdk-drop #listThree [connectedTo]="[listTwo,listOne]" (dropped)="addToList($event)" [data]="gistsBaseDone">
+
+				<div class="kanban-note__wrapper card" *ngFor="let gist of gistsBaseDone" ng-if="gist.description === 'Done" cdkDrag> 
+					<div class="kanban-note card-body">
+						<div class="kanban-note-details">
+							<h4 class="kanban-note-title__text"> {{ gist.content }} </h4>
+							<p class="kanban-note-date__text" >added 3 days ago</p>
+						</div>
+						<div class="kanban-note-actions">
+							<button class="btn kanban-note-btn kanban-note-delete">Delete</button>
+						</div>
+					</div>
+				</div>
+			</cdk-drop>
+		</section>
+	</section>
+</section>
