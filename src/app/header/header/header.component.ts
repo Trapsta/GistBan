@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit {
    //    console.error(err);
    //  });
    //this.openDialog();
-    console.log('user logged in? ' + this.isLoggedIn);
+    console.log('user logged in? ' + this.GistService.isLoggedIn);
     console.log('user email ' + this.userEmail);
     window.open('http://localhost:8000/login', 'Kanban Gists', 'toolbar=no,scrollbars=no,resizable=no,top=100,left=500,width=600,height=580');
     this.confirmLogin();
@@ -64,7 +64,7 @@ export class HeaderComponent implements OnInit {
   		this.avatar_url = data['avatar_url'];
   		
   		if (this.username) {
-  			this.isLoggedIn = true;
+  			this.GistService.isLoggedIn = true;
   			//this.username = data['login'];
   			clearInterval(intervalID);
 

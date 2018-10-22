@@ -1,5 +1,6 @@
 <section class="menu-header">
-    <span class="greeting__text">Welcome Back</span>
+	<span class="greeting__text" *ngIf="!isLoggedIn">GistBan</span>
+    <span class="greeting__text" *ngIf="isLoggedIn">Welcome Back</span>
     <div class="profile-image__container" *ngIf="isLoggedIn">
         <img src={{this.avatar_url}} alt="profile-image"
              class="profile__image">
